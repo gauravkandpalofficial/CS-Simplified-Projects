@@ -88,7 +88,7 @@ int main() {
         {"rihc", "chair", "You sit on this."},
         {"elbat", "table", "You keep things on it while studying or eating."},
         {"retaw", "water", "A liquid that humans need to live."},
-        {"driob", "bird", "An animal with wings that can usually fly."}
+        {"drib", "bird", "An animal with wings that can usually fly."}
     };
 
     Word medium[MEDIUM_COUNT] = {
@@ -98,10 +98,10 @@ int main() {
         {"yrarbil", "library", "A place where many books are kept."},
         {"nomle", "lemon", "A sour yellow fruit."},
         {"ragden", "garden", "A place where flowers and plants grow."},
-        {"tekcar", "cricket", "A popular bat-and-ball game."},
+        {"tekcirc", "cricket", "A popular bat-and-ball game."},
         {"locosh", "school", "A place where students study."},
         {"nekcihc", "chicken", "A bird often raised on farms."},
-        {"temkalp", "market", "A place where people buy and sell goods."}
+        {"tekram", "market", "A place where people buy and sell goods."}
     };
 
     Word hard[HARD_COUNT] = {
@@ -114,16 +114,18 @@ int main() {
 
     char playerName[50], choice;
     int hintsLeft, totalScore, maximumScore;
+    int easyScore, mediumScore, hardScore;
+    int easyCorrect, mediumCorrect;
 
     do {
         hintsLeft = MAX_HINTS;
         totalScore = 0;
         maximumScore = (EASY_COUNT + MEDIUM_COUNT + HARD_COUNT) * 10;
 
-        printf("====================================\n");
+        printf("\n\n====================================\n");
         printf("        WORD SCRAMBLE GAME\n");
         printf("====================================\n");
-        printf("Enter your name: ");
+        printf("\nEnter your name: ");
         fgets(playerName, sizeof(playerName), stdin);
         removeNewline(playerName);
 
@@ -133,10 +135,33 @@ int main() {
         printf("2. Type 'hint' if you need help.\n");
         printf("3. You have only %d hints for the whole game.\n", MAX_HINTS);
         printf("4. Each correct answer gives 10 points.\n");
+        printf("5. You need at least 10 correct answers in Level 1 to unlock Level 2.\n");
+        printf("6. You need at least 5 correct answers in Level 2 to unlock Level 3.\n");
 
-        totalScore += playLevel(easy, EASY_COUNT, "LEVEL 1 - EASY", &hintsLeft);
-        totalScore += playLevel(medium, MEDIUM_COUNT, "LEVEL 2 - MEDIUM", &hintsLeft);
-        totalScore += playLevel(hard, HARD_COUNT, "LEVEL 3 - HARD", &hintsLeft);
+        easyScore = playLevel(easy, EASY_COUNT, "LEVEL 1 - EASY", &hintsLeft);
+        totalScore += easyScore;
+        easyCorrect = easyScore / 10;
+
+        if (easyCorrect >= 10) {
+            printf("\nCongratulations! You unlocked Level 2.\n");
+            mediumScore = playLevel(medium, MEDIUM_COUNT, "LEVEL 2 - MEDIUM", &hintsLeft);
+            totalScore += mediumScore;
+            mediumCorrect = mediumScore / 10;
+
+            if (mediumCorrect >= 5) {
+                printf("\nCongratulations! You unlocked Level 3.\n");
+                hardScore = playLevel(hard, HARD_COUNT, "LEVEL 3 - HARD", &hintsLeft);
+                totalScore += hardScore;
+            } else {
+                printf("\nYou answered only %d question(s) correctly in Level 2.\n", mediumCorrect);
+                printf("You need at least 5 correct answers to unlock Level 3.\n");
+                printf("Level 3 is locked. Game ends here.\n");
+            }
+        } else {
+            printf("\nYou answered only %d question(s) correctly in Level 1.\n", easyCorrect);
+            printf("You need at least 10 correct answers to unlock Level 2.\n");
+            printf("Level 2 and Level 3 are locked. Game ends here.\n");
+        }
 
         printf("\n====================================\n");
         printf("             GAME OVER\n");
