@@ -74,42 +74,42 @@ int playLevel(Word words[], int count, char levelName[], int *hintsLeft) {
 
 int main() {
     Word easy[EASY_COUNT] = {
-        {"elppa", "apple", "A red or green fruit that keeps doctors away."},
-        {"koob", "book", "You read this to gain knowledge or enjoy stories."},
-        {"tac", "cat", "A small pet animal that says meow."},
-        {"god", "dog", "A loyal pet animal that barks."},
-        {"nep", "pen", "You use this to write on paper."},
-        {"nus", "sun", "It gives us light during the day."},
-        {"llab", "ball", "A round object used in many games."},
-        {"hsif", "fish", "An animal that lives in water."},
-        {"eert", "tree", "It has roots, branches, and leaves."},
-        {"rac", "car", "A vehicle used for travelling on roads."},
-        {"klim", "milk", "A white drink that comes from cows."},
-        {"rihc", "chair", "You sit on this."},
-        {"elbat", "table", "You keep things on it while studying or eating."},
-        {"retaw", "water", "A liquid that humans need to live."},
-        {"drib", "bird", "An animal with wings that can usually fly."}
+    {"paple", "apple", "A red or green fruit that keeps doctors away."},
+    {"obko", "book", "You read this to gain knowledge or enjoy stories."},
+    {"atc", "cat", "A small pet animal that says meow."},
+    {"gdo", "dog", "A loyal pet animal that barks."},
+    {"nep", "pen", "You use this to write on paper."},
+    {"sun", "sun", "It gives us light during the day."},   // Better: {"uns", "sun", ...}
+    {"lbal", "ball", "A round object used in many games."},
+    {"ifsh", "fish", "An animal that lives in water."},
+    {"etre", "tree", "It has roots, branches, and leaves."},
+    {"acr", "car", "A vehicle used for travelling on roads."},
+    {"imlk", "milk", "A white drink that comes from cows."},
+    {"aihcr", "chair", "You sit on this."},
+    {"atelb", "table", "You keep things on it while studying or eating."},
+    {"aetrw", "water", "A liquid that humans need to live."},
+    {"rdib", "bird", "An animal with wings that can usually fly."}
     };
 
     Word medium[MEDIUM_COUNT] = {
-        {"retupmoc", "computer", "An electronic machine used for processing data."},
-        {"litsopah", "hospital", "A place where sick people are treated."},
-        {"rehcaet", "teacher", "A person who helps students learn."},
-        {"yrarbil", "library", "A place where many books are kept."},
-        {"nomle", "lemon", "A sour yellow fruit."},
-        {"ragden", "garden", "A place where flowers and plants grow."},
-        {"tekcirc", "cricket", "A popular bat-and-ball game."},
-        {"locosh", "school", "A place where students study."},
-        {"nekcihc", "chicken", "A bird often raised on farms."},
-        {"tekram", "market", "A place where people buy and sell goods."}
+    {"petcomru", "computer", "An electronic machine used for processing data."},
+    {"htipaslo", "hospital", "A place where sick people are treated."},
+    {"erteahc", "teacher", "A person who helps students learn."},
+    {"lryraib", "library", "A place where many books are kept."},
+    {"mnloe", "lemon", "A sour yellow fruit."},
+    {"rgadne", "garden", "A place where flowers and plants grow."},
+    {"ctikcre", "cricket", "A popular bat-and-ball game."},
+    {"soloch", "school", "A place where students study."},
+    {"kccehin", "chicken", "A bird often raised on farms."},
+    {"ekmart", "market", "A place where people buy and sell goods."}
     };
 
     Word hard[HARD_COUNT] = {
-        {"margorp", "program", "A set of instructions written for a computer."},
-        {"ecneics", "science", "The study of nature, experiments, and facts."},
-        {"yrotsih", "history", "The study of past events."},
-        {"noitacude", "education", "The process of gaining knowledge and skills."},
-        {"ygolonhcet", "technology", "The use of science to create useful machines and systems."}
+    {"rgmapro", "program", "A set of instructions written for a computer."},
+    {"scneice", "science", "The study of nature, experiments, and facts."},
+    {"syrohti", "history", "The study of past events."},
+    {"caedtuion", "education", "The process of gaining knowledge and skills."},
+    {"hgelocotyn", "technology", "The use of science to create useful machines and systems."}
     };
 
     char playerName[50], choice;
