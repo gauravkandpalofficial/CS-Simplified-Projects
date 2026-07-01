@@ -47,7 +47,7 @@ int main() {
 
     Player p1, p2;
 
-    cout << "===== Two Player Casino Number Guessing Game =====\n\n";
+    cout << "\n\n===== Two Player Casino Number Guessing Game =====\n\n";
 
     cout << "Enter Player 1 name: ";
     cin >> p1.name;
